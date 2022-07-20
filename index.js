@@ -1,9 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const port = 3001
+const port = 8080
 const dotenv = require('dotenv');
-const { expressjwt: jwt} = require('express-jwt');
+const { expressjwt: jwt } = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 dotenv.config();
 const db = require('./queries')
@@ -17,7 +17,7 @@ const checkJwt = jwt({
     jwksRequestsPerMinute: 5,
     jwksUri: `https://paddington.eu.auth0.com/.well-known/jwks.json`
   }),
-  audience: 'https://paddington.eu.auth0.com/api/v2/', 
+  audience: 'https://paddington.eu.auth0.com/api/v2/',
   issuer: 'https://paddington.eu.auth0.com/',
   algorithms: ['RS256']
 });
