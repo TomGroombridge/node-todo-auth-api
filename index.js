@@ -1,13 +1,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const port = process.env.PORT || 3001
 const dotenv = require('dotenv');
 const { expressjwt: jwt } = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 dotenv.config();
 const db = require('./queries')
 const cors = require('cors');
+const port = process.env.PORT || 3001
 
 const checkJwt = jwt({
   // Dynamically provide a signing key based on the kid in the header and the signing keys provided by the JWKS endpoint
